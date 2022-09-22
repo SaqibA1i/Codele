@@ -8,9 +8,10 @@ export const Box = styled.div<Props>(
     ({ theme }) => ({
         margin: 0,
         padding: 0,
-        color: theme.text,
+        color: theme.main,
         transition: 'all 0.3s',
-        background: theme.main,
+        background: "transparent",
+        zIndex: 1,
     }),
     compose(
         layout,

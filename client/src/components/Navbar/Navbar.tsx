@@ -4,8 +4,7 @@ import { theme } from "../../wrappers/theme";
 const Navbar = () => {
   return (
     <HBox
-      fontSize={70}
-      style={{ fontFamily: "Dancing Script" }}
+      style={{ fontFamily: "Dancing Script", fontSize: 70 }}
       color={theme.light.accent}
     >
       <p style={{ margin: "40px" }}>Codele</p>

@@ -10,8 +10,7 @@ export const Box = styled.div<Props>(
         padding: 0,
         color: theme.main,
         transition: 'all 0.3s',
-        background: "transparent",
-        zIndex: 1,
+        background: "transparent"
     }),
     compose(
         layout,
@@ -29,5 +28,10 @@ export const Box = styled.div<Props>(
         minWidth,
         flexbox,
         boxShadow
-    )
+    ),
+    `
+    @media (max-width: 500px) {
+        font-size: 13px;
+      }
+    `
 )

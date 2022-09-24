@@ -1,3 +1,5 @@
+import { NOTIFICATION_TYPE } from "react-notifications-component/dist/src/typings";
+
 export enum CodeType {
     ALGORITHM = "Algorithm",
     LANGUAGE = "Languange",
@@ -126,3 +128,9 @@ export const CodeTheme = {
     xt256: 'xt256',
     zenburn: 'zenburn'
 };
+
+export type Notification = {
+    type: NOTIFICATION_TYPE,
+    message: String,
+    time?: number
+}

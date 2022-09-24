@@ -19,6 +19,7 @@ import { GUESS_DATA } from "../../redux/guesses";
 import { getOtherState } from "../../redux/otherState/selectors";
 import useLocalStorage from "../../helpers/useLocalStorage";
 import { OTHER_DATA } from "../../redux/otherState";
+import addNotification from "../../helpers/addNotification";
 
 const StyledVBox = styled(VBox)`
   width: 90vw;
@@ -72,7 +73,7 @@ const CodeSection = () => {
   useLocalStorage();
 
   useEffect(() => {
-    fetch(process.env.REACT_APP_SERVER + "/get")
+    fetch(process.env.REACT_APP_SERVER + "/get/" + new Date().getDate())
       .then((response) => response.json())
       .then((codeData) => {
         let temp: string = codeData.data;
@@ -101,11 +102,28 @@ const CodeSection = () => {
   const validate = () => {
     if (answer === currSel) {
       dispatch(OTHER_DATA.updateSuccess(true));
-      alert("YOU CHOSE CORRECT! ");
+      addNotification({ type: "success", message: "You are correct!" });
     } else if (currSel === "") {
-      alert("Selection is empty");
+      addNotification({ type: "warning", message: "Please make a choice" });
+    } else if (guesses.find((guess) => guess === currSel)) {
+      addNotification({
+        type: "warning",
+        message: "You already made this choice ",
+      });
     } else {
       dispatch(GUESS_DATA.update([...guesses, currSel]));
+      if ([...guesses, currSel].length >= 4) {
+        addNotification({
+          type: "danger",
+          message: "The correct answer was: " + answer + ".",
+          time: 6000,
+        });
+      } else {
+        addNotification({
+          type: "danger",
+          message: "Not correct :(",
+        });
+      }
     }
   };
 

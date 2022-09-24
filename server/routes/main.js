@@ -15,8 +15,8 @@ const main = express();
     data: [{"2A":[...]}]
   }
 */
-main.get("/get", (req, res) => {
-  let id = new Date().getDate();
+main.get("/get/:uid", (req, res) => {
+  let id = req.params.uid;
   // Checking if user exists
   CodeData.findOne({ Id: ((id % 3) + 1).toString() })
     .then((response) => {

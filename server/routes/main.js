@@ -18,7 +18,7 @@ const main = express();
 main.get("/get/:uid", (req, res) => {
   let id = req.params.uid;
   // Checking if user exists
-  CodeData.findOne({ Id: ((id % 3) + 1).toString() })
+  CodeData.findOne({ Id: ((id % 6) + 1).toString() })
     .then((response) => {
       if (response) {
         console.log("[Success] Data received)" + response);

@@ -197,7 +197,7 @@ const CodeSection = () => {
           >
             The correct answer was:{" "}
             <b style={{ color: theme.light.accent }}>{answer}</b>
-            For more information on this algorithm visit:{" "}
+            For more information on the '{answer}' algorithm visit:{" "}
             <a
               style={{ color: theme.light.accent }}
               href={"https://www.programiz.com/search/" + answer}
@@ -212,7 +212,8 @@ const CodeSection = () => {
               color: theme.light.text,
             }}
           >
-            You guessed correctly! For more information on this algorithm visit:{" "}
+            You guessed correctly! For more information on the '{answer}'
+            algorithm visit:{" "}
             <a
               style={{ color: theme.light.accent }}
               href={"https://www.programiz.com/search/" + answer}

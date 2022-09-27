@@ -73,7 +73,7 @@ const CodeSection = () => {
   useLocalStorage();
 
   useEffect(() => {
-    fetch(process.env.REACT_APP_SERVER + "/get/" + new Date().getDate())
+    fetch(process.env.REACT_APP_SERVER + "/get/1" + new Date().getDate())
       .then((response) => response.json())
       .then((codeData) => {
         let temp: string = codeData.data;
@@ -120,8 +120,7 @@ const CodeSection = () => {
       if ([...guesses, currSel].length >= 4) {
         addNotification({
           type: "danger",
-          message:
-            "The correct answer was: " + answer + ". Streak is reset to 0 😔",
+          message: "Streak is reset to 0 😔",
           time: 6000,
         });
         dispatch(OTHER_DATA.updateStreak(0));
@@ -165,14 +164,16 @@ const CodeSection = () => {
         </VBox>
       ) : (
         <>
-          <CopyBlock
-            language={language}
-            text={data}
-            showLineNumbers={true}
-            theme={s}
-            wrapLines={true}
-            codeBlock
-          />
+          <Box style={{ maxHeight: "420px", overflow: "scroll" }}>
+            <CopyBlock
+              language={language}
+              text={data}
+              showLineNumbers={true}
+              theme={s}
+              wrapLines={true}
+              codeBlock
+            />
+          </Box>
           <VBox
             style={{ gap: 8, alignItems: "stretch", marginBottom: "-10px" }}
           >

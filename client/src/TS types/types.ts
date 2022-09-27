@@ -9,7 +9,8 @@ export enum CodeType {
 export enum LOCAL_STORAGE {
     STATE = "state",
     DATE = "date",
-    SUCCESS = "success"
+    SUCCESS = "success",
+    STREAK = "streak"
 }
 export const Algorithms = [
     "Binary Search Algorithm",

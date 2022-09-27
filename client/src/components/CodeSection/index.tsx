@@ -67,9 +67,8 @@ const CodeSection = () => {
     answer,
   } = useSelector(getCodeData);
   const { incomingData: loading } = useSelector(getLoader);
-  const { currSel, success } = useSelector(getOtherState);
+  const { currSel, success, streak } = useSelector(getOtherState);
   const guesses = useSelector(getGuessData) || [];
-  const arr = ["", "", "", ""];
 
   useLocalStorage();
 
@@ -96,18 +95,19 @@ const CodeSection = () => {
           localStorage.getItem(LOCAL_STORAGE.STATE) || "[]"
         );
 
+        let streaks: string = localStorage.getItem(LOCAL_STORAGE.STREAK) || "0";
+
         dispatch(GUESS_DATA.update(guesses));
+        dispatch(OTHER_DATA.updateStreak(parseInt(streaks)));
       });
   }, []);
-
-  const a = useMemo(() => guesses[0] || "", [guesses[0]]);
-  const failed = useMemo(() => guesses[0] !== answer, [guesses[0]]);
 
   const validate = () => {
     if (answer === currSel) {
       dispatch(OTHER_DATA.updateSuccess(true));
+      dispatch(OTHER_DATA.updateStreak(streak + 1));
       dispatch(GUESS_DATA.update([...guesses, currSel]));
-      addNotification({ type: "success", message: "You are correct!" });
+      addNotification({ type: "success", message: "Correct: Streak +1 😎" });
     } else if (currSel === "") {
       addNotification({ type: "warning", message: "Please make a choice" });
     } else if (guesses.find((guess) => guess === currSel)) {
@@ -120,13 +120,15 @@ const CodeSection = () => {
       if ([...guesses, currSel].length >= 4) {
         addNotification({
           type: "danger",
-          message: "The correct answer was: " + answer + ".",
+          message:
+            "The correct answer was: " + answer + ". Streak is reset to 0 😔",
           time: 6000,
         });
+        dispatch(OTHER_DATA.updateStreak(0));
       } else {
         addNotification({
           type: "danger",
-          message: "Not correct :(",
+          message: "Not correct 😢",
         });
       }
     }

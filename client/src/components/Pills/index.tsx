@@ -10,7 +10,7 @@ const Pill = ({ name, failed }: { name: string; failed: boolean }) => {
     background: ${!failed ? "#2c2d3a" : "#2c2d3a"};
     padding: 3px 10px;
     border-radius: 10px;
-    border: 3px solid ${!failed ? theme.light.accent : "#272835"};
+    border: 3px solid #272835;
     min-height: 16px;
     p {
       margin: 0;

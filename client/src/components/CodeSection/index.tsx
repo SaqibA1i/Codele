@@ -73,7 +73,7 @@ const CodeSection = () => {
   useLocalStorage();
 
   useEffect(() => {
-    fetch(process.env.REACT_APP_SERVER + "/get/1" + new Date().getDate())
+    fetch(process.env.REACT_APP_SERVER + "/get/" + new Date().getDate())
       .then((response) => response.json())
       .then((codeData) => {
         let temp: string = codeData.data;

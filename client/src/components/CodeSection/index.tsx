@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { CopyBlock, monokai as s } from "react-code-blocks";
 import styled from "styled-components";
 import { Box } from "../../styles/Box";
@@ -69,6 +69,7 @@ const CodeSection = () => {
   const { incomingData: loading } = useSelector(getLoader);
   const { currSel, success } = useSelector(getOtherState);
   const guesses = useSelector(getGuessData) || [];
+  const arr = ["", "", "", ""];
 
   useLocalStorage();
 
@@ -99,9 +100,13 @@ const CodeSection = () => {
       });
   }, []);
 
+  const a = useMemo(() => guesses[0] || "", [guesses[0]]);
+  const failed = useMemo(() => guesses[0] !== answer, [guesses[0]]);
+
   const validate = () => {
     if (answer === currSel) {
       dispatch(OTHER_DATA.updateSuccess(true));
+      dispatch(GUESS_DATA.update([...guesses, currSel]));
       addNotification({ type: "success", message: "You are correct!" });
     } else if (currSel === "") {
       addNotification({ type: "warning", message: "Please make a choice" });
@@ -126,6 +131,25 @@ const CodeSection = () => {
       }
     }
   };
+  const MemoPill = useMemo(
+    () => <Pill name={guesses[0] || ""} failed={guesses[0] !== answer} />,
+    [guesses[0]]
+  );
+
+  const MemoPill2 = useMemo(
+    () => <Pill name={guesses[1] || ""} failed={guesses[1] !== answer} />,
+    [guesses[1]]
+  );
+
+  const MemoPill3 = useMemo(
+    () => <Pill name={guesses[2] || ""} failed={guesses[2] !== answer} />,
+    [guesses[2]]
+  );
+
+  const MemoPill4 = useMemo(
+    () => <Pill name={guesses[3] || ""} failed={guesses[3] !== answer} />,
+    [guesses[3]]
+  );
 
   return (
     <StyledVBox>
@@ -150,18 +174,51 @@ const CodeSection = () => {
           <VBox
             style={{ gap: 8, alignItems: "stretch", marginBottom: "-10px" }}
           >
-            {guesses.map((guess) => (
-              <Pill name={guess} failed={true} />
-            ))}
-            {success && <Pill name={answer} failed={false} />}
+            {MemoPill}
+            {MemoPill2}
+            {MemoPill3}
+            {MemoPill4}
           </VBox>
-          <SearchBar />
           <VBox
             style={{
               display: guesses.length >= 4 || success ? "none" : "block",
+              marginTop: "-10px",
             }}
           >
+            <SearchBar />
+            <br />
             <Button onClick={validate}>Submit</Button>
+          </VBox>
+          <VBox
+            style={{
+              display: guesses.length >= 4 && !success ? "" : "none",
+              color: theme.light.text,
+            }}
+          >
+            The correct answer was:{" "}
+            <b style={{ color: theme.light.accent }}>{answer}</b>
+            For more information on this algorithm visit:{" "}
+            <a
+              style={{ color: theme.light.accent }}
+              href={"https://www.programiz.com/search/" + answer}
+            >
+              programiz
+            </a>
+          </VBox>
+
+          <VBox
+            style={{
+              display: success ? "" : "none",
+              color: theme.light.text,
+            }}
+          >
+            You guessed correctly! For more information on this algorithm visit:{" "}
+            <a
+              style={{ color: theme.light.accent }}
+              href={"https://www.programiz.com/search/" + answer}
+            >
+              programiz
+            </a>
           </VBox>
         </>
       )}

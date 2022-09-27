@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import styled from "styled-components";
 import { HBox } from "../../styles/HBox";
 import Select from "react-select";
@@ -28,10 +28,8 @@ const SearchBar = () => {
 
   const onChange = (val: any) => {
     const { label = "" } = val || {};
-    console.log(label);
     dispatch(OTHER_DATA.updateCurrSel(label));
   };
-
   return (
     <Box>
       <p style={{ marginBottom: "0 0 5px 0", color: "white" }}>
@@ -45,7 +43,7 @@ const SearchBar = () => {
               marginRight: 7,
             }}
           >
-            {4 - guesses.filter((g) => g != "").length}
+            {4 - guesses.filter((g) => g !== "").length}
           </i>
           tries remaining
         </b>

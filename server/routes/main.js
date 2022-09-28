@@ -55,4 +55,38 @@ main.get("/get/:uid", (req, res) => {
   });
 });
 
+main.get("/post/:uid", (req, res) => {
+  console.log("REE");
+  let countTillSuccess = parseInt(req.params.uid);
+  let arr = [];
+  CodeData.findOne({ Id: "223456789" })
+    .then((response) => {
+      arr = JSON.parse(response.data);
+      arr.push(countTillSuccess);
+      let successes = parseInt(response.displayName);
+
+      CodeData.findOneAndUpdate(
+        {
+          Id: "223456789",
+        },
+        {
+          data: JSON.stringify(arr),
+          displayName: (successes + 1).toString(),
+        }
+      ).then(() => {
+        res.status(200).json({
+          data: JSON.stringify(arr),
+          message: "Success count updated " + successes,
+        });
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(404).json({
+        displayName: "Error",
+        data: "BACKEND_ERROR",
+      });
+    });
+});
+
 module.exports = main;

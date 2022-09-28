@@ -112,6 +112,11 @@ const CodeSection = () => {
       dispatch(OTHER_DATA.updateSuccess(true));
       dispatch(OTHER_DATA.updateStreak(streak + 1));
       dispatch(GUESS_DATA.update([...guesses, currSel]));
+      fetch(process.env.REACT_APP_SERVER + "/post/" + guesses.length)
+        .then((response) => response.json())
+        .then((codeData) => {
+          console.log("done");
+        });
       addNotification({ type: "success", message: "Correct: Streak +1 😎" });
     } else if (currSel === "") {
       addNotification({ type: "warning", message: "Please make a choice" });
@@ -128,6 +133,11 @@ const CodeSection = () => {
           message: "Streak is reset to 0 😔",
           time: 6000,
         });
+        fetch(process.env.REACT_APP_SERVER + "/post/" + guesses.length + 1)
+          .then((response) => response.json())
+          .then((codeData) => {
+            console.log("fail");
+          });
         dispatch(OTHER_DATA.updateStreak(0));
       } else {
         addNotification({

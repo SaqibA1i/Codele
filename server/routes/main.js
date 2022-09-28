@@ -74,10 +74,7 @@ main.get("/post/:uid", (req, res) => {
           displayName: (successes + 1).toString(),
         }
       ).then(() => {
-        res.status(200).json({
-          data: JSON.stringify(arr),
-          message: "Success count updated " + successes,
-        });
+        res.status(200).json({});
       });
     })
     .catch((err) => {

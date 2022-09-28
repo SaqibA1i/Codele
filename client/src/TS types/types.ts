@@ -14,7 +14,6 @@ export enum LOCAL_STORAGE {
 }
 export const Algorithms = [
     "Binary Search Algorithm",
-    "Breadth First Search (BFS) Algorithm",
     "Depth First Search (DFS) Algorithm",
     "Merge Sort Algorithm",
     "Quicksort Algorithm",
@@ -34,11 +33,15 @@ export const Algorithms = [
     "Selection Sort Algorithm",
     "Counting Sort Algorithm",
     "Heap Sort Algorithm",
+    "Breadth First Search (BFS) Algorithm",
     "Kahn’s Topological Sort Algorithm",
     "Huffman Coding Compression Algorithm",
     "Quickselect Algorithm",
     "Boyer–Moore Majority Vote Algorithm",
-    "Euclid’s Algorithm"
+    "Ford-Fulkerson Algorithm",
+    "Euclid’s Algorithm",
+    "Prim's Algorithm",
+    "Shell Sort Algorithm"
 ];
 
 export enum Language {

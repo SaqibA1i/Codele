@@ -137,7 +137,11 @@ const CodeSection = () => {
           message: "Streak is reset to 0 😔. Best of luck tommorow!",
           time: 60000,
         });
-        fetch(process.env.REACT_APP_SERVER + "/post/" + guesses.length + 1)
+        fetch(
+          process.env.REACT_APP_SERVER +
+            "/post/" +
+            (guesses.length + 1).toString()
+        )
           .then((response) => response.json())
           .then((codeData) => {
             console.log("fail");

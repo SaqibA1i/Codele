@@ -7,6 +7,8 @@ import styled from "styled-components";
 import Footer from "./components/Footer/Footer";
 import { ReactNotifications } from "react-notifications-component";
 import "react-notifications-component/dist/theme.css";
+import Metrics from "./components/Metics";
+import { Route, Routes } from "react-router-dom";
 
 const StyledVBox = styled(VBox)`
   justify-content: flex-start;
@@ -19,12 +21,22 @@ function App() {
         style={{ justifyContent: "space-between", gap: 40 }}
         height={"100vh"}
       >
-        <ReactNotifications />
-        <StyledVBox>
-          <Navbar />
-          <CodeSection />
-        </StyledVBox>
-        <Footer />
+        <Routes>
+          <Route
+            index
+            element={
+              <>
+                <ReactNotifications />
+                <StyledVBox>
+                  <Navbar />
+                  <CodeSection />
+                </StyledVBox>
+                <Footer />
+              </>
+            }
+          />
+          <Route path="/metrics" element={<Metrics />} />
+        </Routes>
       </VBox>
     </Wrappers>
   );

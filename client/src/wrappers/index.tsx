@@ -1,3 +1,4 @@
+import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import ReduxWrapper from "../redux/reduxStore";
 import { THEME, theme } from "./theme";
@@ -9,7 +10,9 @@ const Wrappers = ({ children }: Props) => {
   return (
     <ThemeProvider theme={theme[THEME.LIGHT]}>
       <ReduxWrapper>
-        <>{children}</>
+        <BrowserRouter>
+          <>{children}</>
+        </BrowserRouter>
       </ReduxWrapper>
     </ThemeProvider>
   );

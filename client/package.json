@@ -31,7 +31,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts && cp netlify.toml ./build/netlify.toml",
+    "build": "react-scripts",
+    "move": "cp netlify.toml ./build/netlify.toml",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

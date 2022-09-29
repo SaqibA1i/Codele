@@ -72,12 +72,23 @@ const CodeSection = () => {
 
   useLocalStorage();
 
+  function getDayOfYear(date = new Date()) {
+    const timestamp1 = Date.UTC(
+      date.getFullYear(),
+      date.getMonth(),
+      date.getDate()
+    );
+    const timestamp2 = Date.UTC(date.getFullYear(), 0, 0);
+
+    const differenceInMilliseconds = timestamp1 - timestamp2;
+
+    const differenceInDays = differenceInMilliseconds / 1000 / 60 / 60 / 24;
+
+    return differenceInDays;
+  }
+
   useEffect(() => {
-    let now: any = new Date();
-    let start: any = new Date(now.getFullYear(), 0, 0);
-    let diff = now - start;
-    let oneDay = 1000 * 60 * 60 * 24;
-    let day = Math.floor(diff / oneDay);
+    let day = getDayOfYear(new Date());
     fetch(process.env.REACT_APP_SERVER + "/get/" + day)
       .then((response) => response.json())
       .then((codeData) => {

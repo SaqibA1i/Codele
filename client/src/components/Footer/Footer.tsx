@@ -19,7 +19,7 @@ const Footer = () => {
           window.location.href = "https://saqibali.ca";
         }}
       >
-        Saqib Ali
+        Developer
       </p>
     </StyledVBox>
   );

@@ -96,4 +96,21 @@ main.get("/post/:uid", (req, res) => {
     });
 });
 
+main.get("/metrics", (req, res) => {
+  CodeData.findOne({ Id: "223456789" })
+    .then((response) => {
+      res.status(200).json({
+        totalCount: parseInt(response.displayName),
+        data: JSON.parse(response.data),
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(404).json({
+        displayName: "Error",
+        data: "BACKEND_ERROR",
+      });
+    });
+});
+
 module.exports = main;

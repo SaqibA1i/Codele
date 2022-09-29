@@ -62,11 +62,15 @@ main.get("/post/:uid", (req, res) => {
   let arr = [];
   CodeData.findOne({ Id: "223456789" })
     .then((response) => {
+      const date = new Date();
+      let offset = -300; //Timezone offset for EST in minutes.
+      let estDate = new Date(date.getTime() + offset * 60 * 1000).toString();
+
       arr = JSON.parse(response.data);
-      if (arr[new Date().toDateString()] == undefined) {
-        arr[new Date().toDateString()] = [];
+      if (arr[estDate] == undefined) {
+        arr[estDate] = [];
       }
-      arr[new Date().toDateString()].push(countTillSuccess);
+      arr[estDate].push(countTillSuccess);
 
       let successes = parseInt(response.displayName);
 

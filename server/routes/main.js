@@ -57,7 +57,6 @@ main.get("/get/:uid", (req, res) => {
 
 // [1,2,1,3,1,4,4,3,3,3,3,1,2,1,1,4]
 main.get("/post/:uid", (req, res) => {
-  console.log("REE");
   let countTillSuccess = parseInt(req.params.uid);
   let arr = [];
   CodeData.findOne({ Id: "223456789" })
@@ -66,7 +65,7 @@ main.get("/post/:uid", (req, res) => {
       let offset = -300; //Timezone offset for EST in minutes.
       let estDate = new Date(
         date.getTime() + offset * 60 * 1000
-      ).toDateString();
+      ).toLocaleDateString();
 
       arr = JSON.parse(response.data);
       if (arr[estDate] == undefined) {

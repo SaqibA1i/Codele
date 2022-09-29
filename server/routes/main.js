@@ -64,7 +64,9 @@ main.get("/post/:uid", (req, res) => {
     .then((response) => {
       const date = new Date();
       let offset = -300; //Timezone offset for EST in minutes.
-      let estDate = new Date(date.getTime() + offset * 60 * 1000).toString();
+      let estDate = new Date(
+        date.getTime() + offset * 60 * 1000
+      ).toDateString();
 
       arr = JSON.parse(response.data);
       if (arr[estDate] == undefined) {

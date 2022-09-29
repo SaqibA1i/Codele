@@ -117,7 +117,11 @@ const CodeSection = () => {
         .then((codeData) => {
           console.log("done");
         });
-      addNotification({ type: "success", message: "Correct: Streak +1 😎" });
+      addNotification({
+        type: "success",
+        message: "See you again tommorow smart person. Streak +1 😎",
+        time: 60000,
+      });
     } else if (currSel === "") {
       addNotification({ type: "warning", message: "Please make a choice" });
     } else if (guesses.find((guess) => guess === currSel)) {
@@ -130,8 +134,8 @@ const CodeSection = () => {
       if ([...guesses, currSel].length >= 4) {
         addNotification({
           type: "danger",
-          message: "Streak is reset to 0 😔",
-          time: 6000,
+          message: "Streak is reset to 0 😔. Best of luck tommorow!",
+          time: 60000,
         });
         fetch(process.env.REACT_APP_SERVER + "/post/" + guesses.length + 1)
           .then((response) => response.json())
@@ -211,6 +215,7 @@ const CodeSection = () => {
             style={{
               display: guesses.length >= 4 && !success ? "" : "none",
               color: theme.light.text,
+              gap: 4,
             }}
           >
             The correct answer was:{" "}
@@ -222,12 +227,14 @@ const CodeSection = () => {
             >
               programiz
             </a>
+            Best of luck tommorow!
           </VBox>
 
           <VBox
             style={{
               display: success ? "" : "none",
               color: theme.light.text,
+              gap: 4,
             }}
           >
             You chose correctly! For more information on the '{answer}'
@@ -238,6 +245,7 @@ const CodeSection = () => {
             >
               programiz
             </a>
+            See you again tommorow!
           </VBox>
         </>
       )}

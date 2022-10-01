@@ -5,6 +5,7 @@ import styled from "styled-components";
 import addNotification from "../../helpers/addNotification";
 import { OTHER_DATA } from "../../redux/otherState";
 import { getOtherState } from "../../redux/otherState/selectors";
+let Filter = require("bad-words");
 
 const Input = styled.input`
   color: #333;
@@ -27,7 +28,7 @@ const Form = () => {
   const dispatch = useDispatch();
   const { userName } = useSelector(getOtherState);
   const inputRef = useRef<any>();
-
+  let filter = new Filter();
   const submit = () => {
     let name: string = inputRef.current.value;
     if (name.length >= 12) {
@@ -42,7 +43,7 @@ const Form = () => {
         message: "Successfully updated name",
         time: 3000,
       });
-      dispatch(OTHER_DATA.updateUserName(name));
+      dispatch(OTHER_DATA.updateUserName(filter.clean(name)));
     }
   };
   return (

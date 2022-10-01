@@ -39,6 +39,7 @@ const SideBar = () => {
    background: ${theme.main};
     min-height: 70vh;
     width: 70vw;
+    max-width: 500px;
     position: absolute;
     top: 133px;
     left: 0px;
@@ -67,7 +68,6 @@ const SideBar = () => {
       }}
     >
       <HBox
-        width="inherit"
         color={theme.light.text}
         style={{ justifyContent: "end", cursor: "pointer" }}
         onClick={() => {

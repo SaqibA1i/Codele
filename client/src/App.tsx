@@ -26,7 +26,7 @@ function App() {
           <Route
             index
             element={
-              <>
+              <div style={{ position: "relative" }}>
                 <ReactNotifications />
                 <StyledVBox>
                   <Navbar />
@@ -34,7 +34,7 @@ function App() {
                   <CodeSection />
                 </StyledVBox>
                 <Footer />
-              </>
+              </div>
             }
           />
           <Route path="/metrics" element={<Metrics />} />

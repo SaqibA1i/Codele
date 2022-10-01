@@ -36,12 +36,12 @@ console.log(changeTimeZone(new Date(), "America/Toronto").toLocaleDateString());
 
 const updateGuessCount = (countTillSuccess) => {
   let arr = [];
+
   CodeData.findOne({ Id: "223456789" })
     .then((response) => {
-      const date = new Date();
-      let offset = -300; //Timezone offset for EST in minutes.
-      let estDate = new Date(
-        date.getTime() + offset * 60 * 1000
+      let estDate = changeTimeZone(
+        new Date(),
+        "America/Toronto"
       ).toLocaleDateString();
 
       arr = JSON.parse(response.data);

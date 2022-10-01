@@ -7,6 +7,7 @@ const useLocalStorage = () => {
     const dispatch = useDispatch();
     const date = (new Date()).getDate();
     const localDate = localStorage.getItem(LOCAL_STORAGE.DATE) || "";
+    const userName = localStorage.getItem(LOCAL_STORAGE.USER_NAME) || "";
 
     if (localDate !== date.toString()) {
         localStorage.setItem(LOCAL_STORAGE.DATE, date.toString());
@@ -16,6 +17,7 @@ const useLocalStorage = () => {
     else {
         dispatch(OTHER_DATA.updateSuccess(localStorage.getItem(LOCAL_STORAGE.SUCCESS) === "true"));
     }
+    dispatch(OTHER_DATA.updateUserName(userName));
 }
 
 export default useLocalStorage;

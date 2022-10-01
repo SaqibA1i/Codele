@@ -67,7 +67,7 @@ const CodeSection = () => {
     answer,
   } = useSelector(getCodeData);
   const { incomingData: loading } = useSelector(getLoader);
-  const { currSel, success, streak } = useSelector(getOtherState);
+  const { currSel, success, streak, userName } = useSelector(getOtherState);
   const guesses = useSelector(getGuessData) || [];
 
   useLocalStorage();
@@ -116,6 +116,12 @@ const CodeSection = () => {
         dispatch(GUESS_DATA.update(guesses));
         dispatch(OTHER_DATA.updateStreak(parseInt(streaks)));
       });
+    fetch(process.env.REACT_APP_SERVER + "/names")
+      .then((response) => response.json())
+      .then((nameData) => {
+        let temp: string[] = nameData.data;
+        dispatch(OTHER_DATA.updateTop7(temp));
+      });
   }, []);
 
   const validate = () => {
@@ -123,10 +129,20 @@ const CodeSection = () => {
       dispatch(OTHER_DATA.updateSuccess(true));
       dispatch(OTHER_DATA.updateStreak(streak + 1));
       dispatch(GUESS_DATA.update([...guesses, currSel]));
-      fetch(process.env.REACT_APP_SERVER + "/post/" + guesses.length)
+      fetch(process.env.REACT_APP_SERVER + "/post", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          guesses: guesses.length,
+          name: userName,
+        }),
+      })
         .then((response) => response.json())
-        .then((codeData) => {
-          console.log("done");
+        .then(({ top7 }) => {
+          console.log(top7);
+          dispatch(OTHER_DATA.updateTop7(top7));
         });
       addNotification({
         type: "success",

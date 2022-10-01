@@ -10,7 +10,8 @@ export enum LOCAL_STORAGE {
     STATE = "state",
     DATE = "date",
     SUCCESS = "success",
-    STREAK = "streak"
+    STREAK = "streak",
+    USER_NAME = "username"
 }
 export const Algorithms = [
     "Binary Search Algorithm",

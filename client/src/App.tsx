@@ -9,6 +9,7 @@ import { ReactNotifications } from "react-notifications-component";
 import "react-notifications-component/dist/theme.css";
 import Metrics from "./components/Metics";
 import { Route, Routes } from "react-router-dom";
+import SideBar from "./components/SideBar";
 
 const StyledVBox = styled(VBox)`
   justify-content: flex-start;
@@ -29,6 +30,7 @@ function App() {
                 <ReactNotifications />
                 <StyledVBox>
                   <Navbar />
+                  <SideBar />
                   <CodeSection />
                 </StyledVBox>
                 <Footer />

@@ -13,33 +13,36 @@ import SideBar from "./components/SideBar";
 
 const StyledVBox = styled(VBox)`
   justify-content: flex-start;
+  position: relative;
 `;
 
 function App() {
   return (
     <Wrappers>
-      <VBox
-        style={{ justifyContent: "space-between", gap: 40 }}
-        height={"100vh"}
-      >
-        <Routes>
-          <Route
-            index
-            element={
-              <div style={{ position: "relative" }}>
-                <ReactNotifications />
-                <StyledVBox>
-                  <Navbar />
-                  <SideBar />
-                  <CodeSection />
-                </StyledVBox>
-                <Footer />
-              </div>
-            }
-          />
-          <Route path="/metrics" element={<Metrics />} />
-        </Routes>
-      </VBox>
+      <Routes>
+        <Route
+          index
+          element={
+            <VBox
+              style={{
+                justifyContent: "space-between",
+                gap: 40,
+                position: "relative",
+              }}
+              height={"100vh"}
+            >
+              <ReactNotifications />
+              <StyledVBox>
+                <Navbar />
+                <SideBar />
+                <CodeSection />
+              </StyledVBox>
+              <Footer />
+            </VBox>
+          }
+        />
+        <Route path="/metrics" element={<Metrics />} />
+      </Routes>
     </Wrappers>
   );
 }

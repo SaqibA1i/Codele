@@ -41,16 +41,22 @@ function App() {
             </VBox>
           }
         />
-        <VBox
-          style={{
-            justifyContent: "space-between",
-            gap: 40,
-            position: "relative",
-          }}
-          height={"100vh"}
-        >
-          <Route path="/metrics" element={<Metrics />} />
-        </VBox>
+
+        <Route
+          path="/metrics"
+          element={
+            <VBox
+              style={{
+                justifyContent: "space-between",
+                gap: 40,
+                position: "relative",
+              }}
+              height={"100vh"}
+            >
+              <Metrics />
+            </VBox>
+          }
+        />
       </Routes>
     </Wrappers>
   );

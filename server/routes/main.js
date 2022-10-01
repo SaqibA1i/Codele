@@ -32,7 +32,7 @@ function changeTimeZone(date, timeZone) {
     })
   );
 }
-console.log(changeTimeZone(new Date(), "America/Toronto").toString());
+console.log(changeTimeZone(new Date(), "America/Toronto").toLocaleDateString());
 
 const updateGuessCount = (countTillSuccess) => {
   let arr = [];
@@ -122,11 +122,33 @@ main.post("/post", (req, res) => {
   CodeData.findOne({ Id: "top7" })
     .then((response) => {
       top7 = JSON.parse(response.data);
-      if (top7.length < 7) {
+
+      let currDate = changeTimeZone(
+        new Date(),
+        "America/Toronto"
+      ).toLocaleDateString();
+
+      let oldDate = response.displayName;
+
+      if (currDate !== oldDate) {
+        // UPDATE DATE AND CLEAR TOP7
+        top7 = [name];
+        CodeData.findOneAndUpdate(
+          { Id: "top7" },
+          {
+            displayName: currDate,
+            data: JSON.stringify(top7),
+          }
+        ).then(() => {
+          updateGuessCount(guesses);
+          res.status(200).json({ top7 });
+        });
+      } else if (top7.length < 7) {
+        // UPDATE TOP7
         if (name != "" && name != undefined) {
           top7.push(name);
         }
-        console.log(top7, name);
+
         CodeData.findOneAndUpdate(
           { Id: "top7" },
           {
@@ -160,7 +182,32 @@ main.get("/post/:uid", (req, res) => {
 main.get("/names", (req, res) => {
   CodeData.findOne({ Id: "top7" })
     .then((response) => {
-      res.status(200).json({ data: JSON.parse(response.data) });
+      let currDate = changeTimeZone(
+        new Date(),
+        "America/Toronto"
+      ).toLocaleDateString();
+
+      let oldDate = response.displayName;
+
+      if (currDate !== oldDate) {
+        // UPDATE DATE AND CLEAR TOP7
+        top7 = [];
+        CodeData.findOneAndUpdate(
+          { Id: "top7" },
+          {
+            displayName: currDate,
+            data: JSON.stringify(top7),
+          }
+        ).then(() => {
+          res
+            .status(200)
+            .json({ data: JSON.parse(response.data), date: currDate });
+        });
+      } else {
+        res
+          .status(200)
+          .json({ data: JSON.parse(response.data), date: currDate });
+      }
     })
     .catch((err) => {
       console.log(err);

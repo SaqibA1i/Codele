@@ -25,11 +25,15 @@ const Metrics = () => {
       .then((response) => response.json())
       .then((metrics) => {
         let dataTemp: Series[] = [];
-
+        let runningSum = 0;
         for (let i = 0; i < 5; i++) {
           if (i === 4) {
             dataTemp.push({
               label: "Failed",
+              data: [],
+            });
+            dataTemp.push({
+              label: "TOTAL USERS",
               data: [],
             });
           } else {
@@ -55,13 +59,18 @@ const Metrics = () => {
           });
 
           console.log(map);
-
+          let running_sum = 0;
           Object.keys(map).map((key: any) => {
             console.log(key);
+            running_sum += map[key];
             dataTemp[key].data.push({
               guessKey: metric,
               count: map[key],
             });
+          });
+          dataTemp[5].data.push({
+            guessKey: metric,
+            count: running_sum,
           });
         });
         setData([...dataTemp]);

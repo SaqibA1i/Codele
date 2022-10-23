@@ -42,7 +42,8 @@ export const Algorithms = [
     "Ford-Fulkerson Algorithm",
     "Euclid’s Algorithm",
     "Prim's Algorithm",
-    "Shell Sort Algorithm"
+    "Shell Sort Algorithm",
+    "Rabin-Karp Algorithm"
 ];
 
 export enum Language {

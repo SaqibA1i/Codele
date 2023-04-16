@@ -2,7 +2,7 @@ import styled, { ThemeContext, useTheme } from "styled-components";
 import { HBox } from "../../styles/HBox";
 import { Logo } from "./Logo";
 import { List, Whatsapp } from "react-bootstrap-icons";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Button } from "../../styles/Button";
 import { Link } from "react-router-dom";
 import NavLinks, { LinkExternalPage, LinkPage } from "./NavLinks";
@@ -39,31 +39,51 @@ const LogoSection = styled(HBox)`
 `}
 `;
 
+const StyledHBox = styled(HBox)`
+  padding: 20px;
+  justify-content: space-between;
+  width: -webkit-fill-available;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  font-size: 0.7rem;
+
+  color: white;
+  a {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+`;
 const Navbar = ({ onSideBarClick }: { onSideBarClick: any }) => {
   const [showSidebar, setShowSidebar] = useState<Boolean>(false);
   const theme = useContext(ThemeContext);
 
-  const StyledHBox = styled(HBox)`
-    padding: 20px;
-    justify-content: space-between;
-    width: -webkit-fill-available;
-    position: sticky;
-    top: 0;
-    left: 0;
-    z-index: 2000;
-    font-size: 0.7rem;
-    background: #00000053;
-    backdrop-filter: blur(3px);
-    color: white;
-    a {
-      color: white;
-      text-decoration: none;
-      cursor: pointer;
-      text-transform: uppercase;
-    }
-  `;
+  useEffect(() => {
+    const navbar = document.getElementById("navbar");
+    const doc = document.getElementById("hello");
+    // Add an event listener to detect when the user scrolls
+    doc?.addEventListener("scroll", function () {
+      // Check if the user has scrolled to the top of the page
+      if (doc?.scrollTop === 0 && window.location.pathname === "/") {
+        // Add the "top-nav" class to the navbar element
+        // navbar!.classList.add("navbar-top");
+        navbar!.classList.remove("navbar-scroll");
+      } else {
+        navbar!.classList.add("navbar-scroll");
+        // navbar!.classList.remove("navbar-top");
+      }
+    });
+
+    window.addEventListener("popstate", function () {
+      console.log("The window pathname has changed!");
+    });
+  }, []);
+
   return (
-    <StyledHBox>
+    <StyledHBox id="navbar">
       <LogoSection>
         <List
           size={"2.3rem"}

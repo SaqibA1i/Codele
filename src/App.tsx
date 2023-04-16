@@ -1,5 +1,5 @@
 import { Routes, Route, BrowserRouter, Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { VBox } from "./styles/VBox";
 import Navbar from "./components/Navbar";
 import { ThemeWrappers } from "./wrappers";
@@ -51,6 +51,7 @@ const StyledVBox = styled(VBox)`
     font-size: 1.5rem;
   }
 `;
+
 function App() {
   const [sideOpen, setSideOpen] = useState<boolean>(false);
   const [showDropdown, setDropDown] = useState<boolean>(false);

@@ -84,6 +84,11 @@ html {
   }
 }
 
+.navbar-scroll {
+  transition: all 2s;
+  background: #000000a1;
+  backdrop-filter: blur(2px);
+}
 .truncate {
   p {
     overflow: hidden;

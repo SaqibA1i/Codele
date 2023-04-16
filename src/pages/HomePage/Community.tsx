@@ -113,9 +113,7 @@ const Community = ({
   return (
     <StyledVBox className={disabled || show ? "" : "truncate"}>
       {src && !link?.includes("http") ? (
-        <Img to={link ? link : "#"} target="_blank">
-          {fade}
-        </Img>
+        <Img to={link ? link : "#"}>{fade}</Img>
       ) : link ? (
         <Img2 href={link ? link : "#"} target="_blank">
           {fade}

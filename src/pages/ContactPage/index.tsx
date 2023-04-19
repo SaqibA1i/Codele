@@ -28,6 +28,7 @@ const ContactPage = () => {
           <VBox style={{ alignItems: "start" }}>
             <h3>Head Office</h3>
             <p>221 Helen Ave. Markham, ON L3R 1J7</p>
+            <p>1275 Finch Ave West</p>
           </VBox>
           <VBox style={{ alignItems: "start" }}>
             <h3>Phone</h3>
@@ -43,7 +44,7 @@ const ContactPage = () => {
               }}
               href="https://wa.me/12896375120"
             >
-              <p>+1 (289) 637-5120</p>
+              <p>+1 (647) 869-0087</p>
             </a>
           </VBox>
         </VBox>
@@ -60,7 +61,7 @@ const ContactPage = () => {
             intent="edit"
             icon={<EnvelopeFill />}
             onClick={() =>
-              (window.location.href = "mailto:paula@besthomescanada.com")
+              (window.location.href = "mailto:contact@bashdevelopments.com")
             }
           >
             Email

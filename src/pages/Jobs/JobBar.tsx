@@ -81,7 +81,7 @@ const JobBar = ({ Head, Description, pills }: Props) => {
       <StyledBox>
         <a
           style={{ textDecoration: "none", color: "#333", fontWeight: 600 }}
-          href={`mailto:paula@besthomescanada.com?subject=JOB APPLICATION for posting: ${Head}`}
+          href={`mailto:contact@bashdevelopments.com?subject=JOB APPLICATION for posting: ${Head}`}
         >
           Apply
         </a>

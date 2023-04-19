@@ -24,7 +24,7 @@ const Section = ({ headText, head, children, secondary }: Props) => {
     color: ${secondary ? theme.accent : theme.red};
   `}
     @media screen and (max-width: ${({ theme }) => `${theme.mobile}`}) {
-      -webkit-text-stroke: none;
+      -webkit-text-stroke: white;
     }
     /* &:before {
     display: block;

@@ -15,11 +15,11 @@ import { HBox } from "../../styles/HBox";
 const FootHeader = styled.p`
   ${({ theme }) => `
           color: ${theme.red} !important;
-          font-size: 1rem !important;
+          font-size: 1.3rem !important;
           padding-bottom: 5px;
           padding-top: 20px;
           border-bottom: 1.5px solid ${theme.red};
-          font-weight: 600 !important;
+          font-weight: 900 !important;
           min-width: 150px;
     `};
 `;
@@ -37,7 +37,7 @@ const StyledVBox = styled(VBox)`
             font-size: 0.8rem;
             margin: 0;
             @media (max-width: ${theme.mobile}) {
-              font-size:1rem;
+              font-size:1.1rem;
         }
         }
     `};
@@ -60,16 +60,17 @@ const Footer = () => {
 
           <FooterLink Icon={<Telephone />} text="+1 (905) 479 - 9600" />
 
-          <FooterLink Icon={<Envelope />} text="paula@besthomescanada.com" />
+          <FooterLink Icon={<Envelope />} text="contact@bashdevelopments.com" />
           <FooterLink
             Icon={<Whatsapp />}
-            text={<a href="https://wa.me/12896375120">+1 (289) 637-5120</a>}
+            text={<a href="https://wa.me/16478690087">+1 (647) 869-0087</a>}
           />
           <FootHeader>Location</FootHeader>
           <FooterLink
             Icon={<GeoAlt />}
             text="221 Helen Ave. Markham ON L3R 1J7"
           />
+          <FooterLink Icon={<GeoAlt />} text="1275 Finch Ave West" />
           <FootHeader>Communities</FootHeader>
           <FooterLink
             Icon={<Whatsapp />}

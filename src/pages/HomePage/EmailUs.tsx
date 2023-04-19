@@ -20,7 +20,7 @@ const EmailUs = () => {
             intent="edit"
             icon={<EnvelopeFill />}
             onClick={() =>
-              (window.location.href = "mailto:paula@besthomescanada.com")
+              (window.location.href = "mailto:contact@bashdevelopments.com")
             }
           >
             Email

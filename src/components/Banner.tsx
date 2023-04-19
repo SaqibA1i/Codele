@@ -35,7 +35,7 @@ const Img = styled(Box)<Props>`
   background-position: 0 56%;
   z-index: 1000;
   @media screen and (max-width: ${({ theme }) => `${theme.mobile}`}) {
-    -webkit-text-stroke: none;
+    -webkit-text-stroke: white;
   }
 `;
 type BannerProps = {

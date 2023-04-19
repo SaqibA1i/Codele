@@ -43,7 +43,7 @@ const LogoSection = styled(HBox)`
 `;
 
 const StyledHBox = styled(HBox)`
-  padding: 20px;
+  padding: 1.2rem;
   justify-content: space-between;
   width: -webkit-fill-available;
   position: sticky;

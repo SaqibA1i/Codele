@@ -22,7 +22,11 @@ const Section = ({ headText, head, children, secondary }: Props) => {
     padding-top: ${secondary ? `50px` : 0};
     ${({ theme }) => `
     color: ${secondary ? theme.accent : theme.red};
-  `}/* &:before {
+  `}
+    @media screen and (max-width: ${({ theme }) => `${theme.mobile}`}) {
+      -webkit-text-stroke: none;
+    }
+    /* &:before {
     display: block;
     content: "01 - ";
     height: 30px;

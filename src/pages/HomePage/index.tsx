@@ -24,7 +24,7 @@ const Vid = styled.video`
 `;
 
 const Skyline = styled(Vid)`
-  height: 100vh;
+  height: 95vh;
   width: 100%;
   left: 0;
   z-index: 2;

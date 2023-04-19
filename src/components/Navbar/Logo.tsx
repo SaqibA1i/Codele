@@ -9,7 +9,7 @@ const StyledLogo = styled.img<Props>(
   ({ theme, dark }) => ({
     margin: 0,
     color: "#EF373E",
-    width: "200px",
+    width: "10rem",
     transition: "all 0.3s",
     fontSize: "1rem",
     display: "flex",

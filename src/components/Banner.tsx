@@ -34,6 +34,9 @@ const Img = styled(Box)<Props>`
   text-align: center;
   background-position: 0 56%;
   z-index: 1000;
+  @media screen and (max-width: ${({ theme }) => `${theme.mobile}`}) {
+    -webkit-text-stroke: none;
+  }
 `;
 type BannerProps = {
   heading: string;

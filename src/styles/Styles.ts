@@ -1,7 +1,9 @@
 export const theme = {
   "light": {
     blue: "#740000",
-    black: "#232323",
+    red: "#EF373E",
+
+    black: "#333",
     grey: "#9d9d9c",
     accent: "white",
     accentGradient: "linear-gradient(#2c77ff,rgba(44,118,255,.761))",

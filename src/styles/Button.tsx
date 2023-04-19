@@ -12,13 +12,13 @@ const StyledButton = styled.button<Props>(
     switch (intent) {
       case "submit":
         return {
-          background: theme.accent,
-          color: theme.black,
+          background: `${theme.red} !important`,
+          color: theme.red,
         };
       default:
         return {
-          background: theme.blue,
-          color: theme.accent,
+          background: `white`,
+          color: theme.red,
         };
     }
   },
@@ -27,9 +27,9 @@ const StyledButton = styled.button<Props>(
     width: "fit-content",
     cursor: "pointer",
     border: "0",
-    borderRadius: "2px",
-    padding: "10px",
-    fontSize: "1rem",
+    borderRadius: "10px",
+    padding: "15px",
+    fontSize: "1.2rem",
     display: "flex",
     flexDirection: "row",
     alignItems: "center",

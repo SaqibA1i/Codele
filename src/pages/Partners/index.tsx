@@ -7,6 +7,7 @@ import { theme } from "../../styles/Styles";
 import styled from "styled-components";
 import { H1 } from "../../styles/Text";
 import { Button } from "../../styles/Button";
+import EmailUs from "../HomePage/EmailUs";
 
 const StyledVBox = styled(VBox)`
   padding: 40px;
@@ -33,11 +34,11 @@ const StyledVBox = styled(VBox)`
 
 const Partners = () => {
   return (
-    <Section head="Our Family">
+    <div>
       <VBox
         style={{
           gap: "2rem",
-          marginBottom: "-20px",
+          alignItems: "stretch",
         }}
       >
         <Banner
@@ -81,8 +82,10 @@ const Partners = () => {
             </Button>
           </StyledVBox>
         </HBox>
+
+        <EmailUs />
       </VBox>
-    </Section>
+    </div>
   );
 };
 

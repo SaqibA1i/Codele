@@ -8,14 +8,14 @@ import Community from "../HomePage/Community";
 
 const CurrentCommunities = () => {
   return (
-    <Section head="Current communities">
+    <Section head="Current Communities">
       <VBox style={{ gap: "2rem", marginBottom: "-20px" }}>
-        <Banner
+        {/* <Banner
           src="rogers.jpg"
           heading="Current Communities"
           subHeading="Communites currently existing in our portfolio"
           data-aos="zoom-out"
-        />
+        /> */}
         <HBox flexWrap="wrap" style={{ gap: "2rem" }}>
           <Community
             src="current.jpg"

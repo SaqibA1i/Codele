@@ -1,9 +1,13 @@
-import styled from "styled-components";
+import styled, { ThemeContext } from "styled-components";
 import { Box } from "../styles/Box";
 import { H1 } from "../styles/Text";
 import { VBox } from "../styles/VBox";
 import Aos from "aos";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import Section from "./Section";
+import { HBox } from "../styles/HBox";
+import { Button } from "../styles/Button";
+import Form from "../pages/HomePage/Form";
 type Props = {
   src: string;
 };
@@ -12,19 +16,20 @@ const Img = styled(Box)<Props>`
   width: 100vw;
   height: 396px;
   background: linear-gradient(
-      to left,
-      rgb(78, 0, 0, 77%) 0%,
-      rgb(31 1 1 / 87%) 100%
+      to bottom,
+      rgb(255, 255, 255) 0%,
+      rgba(0, 0, 0, 0) 100%
     ),
     url(niagra.jpg), url(${({ src }) => src});
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
+  padding-top: 20px;
   align-items: center;
   background-size: cover;
-  color: white !important;
+  color: ${({ theme }) => `${theme.red}`} !important;
   transition: 0.3s all;
-  text-transform: uppercase;
+  -webkit-text-stroke-width: thin;
   text-decoration: none;
   text-align: center;
   background-position: 0 56%;
@@ -38,14 +43,18 @@ type BannerProps = {
 };
 const Banner = ({ heading, subHeading, src, anim }: BannerProps) => {
   return (
-    <Img src={src} data-aos={anim ? "fade-up" : ""}>
-      <VBox>
-        <H1 style={{ color: "white" }}>{heading}</H1>
-        <p style={{ color: "white", fontSize: "1rem", padding: "20px 40px" }}>
-          {subHeading}
-        </p>
-      </VBox>
-    </Img>
+    <div data-aos={anim ? "fade-up" : ""}>
+      <Section head={heading} secondary>
+        <HBox
+          flexWrap="wrap"
+          style={{ gap: "2rem", padding: "40px", color: "white" }}
+        >
+          <VBox style={{ gap: "2rem" }}>
+            <p style={{ color: "white", fontWeight: 100 }}>{subHeading}</p>
+          </VBox>
+        </HBox>
+      </Section>
+    </div>
   );
 };
 

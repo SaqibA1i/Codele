@@ -24,10 +24,10 @@ export const LinkPage = styled(Link)`
 export const LinkExternalPage = styled.a`
   ${({ theme }) => `
     
-            color: white;
+            color: white !important;
+            text-transform: none;
             text-decoration: none;
             cursor: pointer;
-            text-transform: uppercase;
             @media (max-width: ${theme.tablet}) {
                 display: none;
             }

@@ -1,9 +1,10 @@
-import styled from "styled-components";
+import styled, { ThemeContext } from "styled-components";
 import { VBox } from "../../styles/VBox";
 import { Button } from "../../styles/Button";
 import { Box } from "../../styles/Box";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { theme } from "../../styles/Styles";
 
 type Props = {
   src?: string;
@@ -37,6 +38,7 @@ const StyledVBox = styled(VBox)`
   }
   p {
     max-width: 350px;
+    font-weight: 600;
   }
 `;
 
@@ -51,11 +53,9 @@ const Community = ({
   MoreDesc,
 }: Props) => {
   const [show, setShow] = useState<boolean>(false);
-
+  const theme = useContext(ThemeContext);
   const Img = styled(Link)`
-    background: ${fade
-      ? `linear-gradient(to left, rgba(57, 1, 1, 0.85) 0%,rgba(74, 0, 0, 0.85) 100%), url(${src})`
-      : `url(${src})`};
+    background: url(${src});
     ${link ? `cursor: pointer` : `cursor: arrow`};
     display: flex;
     flex-direction: column;
@@ -67,10 +67,8 @@ const Community = ({
     background-size: cover;
     color: white;
     font-size: 1.9rem;
-    font-family: Bellefair;
     font-weight: 600;
     transition: 0.3s all;
-    text-transform: uppercase;
     text-decoration: none;
     text-align: center;
     ${link &&
@@ -83,7 +81,7 @@ const Community = ({
   `;
   const Img2 = styled.a`
     background: ${fade
-      ? `linear-gradient(to left, rgba(57, 1, 1, 0.771) 0%,rgba(139, 0, 0, 0.771) 100%), url(${src})`
+      ? `linear-gradient(to left, rgba(0, 0, 0, 0.771) 0%,rgba(0, 0, 0, 0.771) 100%), url(${src})`
       : `url(${src})`};
     ${link ? `cursor: pointer` : `cursor: arrow`};
     display: flex;
@@ -121,7 +119,7 @@ const Community = ({
       ) : (
         <></>
       )}
-      {Name && <h2>{Name}</h2>}
+      {Name && <h2 style={{ color: theme.red }}>{Name}</h2>}
       {Description && <p>{Description}</p>}
       <Box
         style={{

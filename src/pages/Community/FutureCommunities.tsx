@@ -7,13 +7,13 @@ import Community from "../HomePage/Community";
 
 const FutureCommunity = () => {
   return (
-    <Section head="Future communities">
+    <Section head="Future Communities">
       <VBox style={{ gap: "2rem", marginBottom: "-20px" }}>
-        <Banner
+        {/* <Banner
           src="waterloo.jpg"
           heading="Future Communities"
           subHeading="Communites coming to our portfolio"
-        />
+        /> */}
         <HBox style={{ gap: "2rem" }}>
           <Community
             src="napanee.jpg"

@@ -10,14 +10,13 @@ export const Text = styled(Box)`
 `
 
 export const H1 = styled.h1`
-    font-family: Bellefair;
-    text-transform: uppercase;
+    font-family: Lato;
     font-weight: 600;
     margin: 0;
     font-size: 1.7rem;
     text-align: center;
     ${({ theme }) => `
-    color: ${theme.blue};`}
+    color: ${theme.red};`}
     width: -webkit-fill-available;
     @media screen and (max-width: ${({ theme }) => `${theme.mobile}`}) {
       font-size: 2.1rem;

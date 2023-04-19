@@ -11,10 +11,7 @@ const StyledHBox = styled(HBox)`
 `;
 const FooterLink = ({ Icon, text }: Props) => {
   return (
-    <StyledHBox>
-      {Icon}
-      {"string" === typeof text ? <p>{text}</p> : text}
-    </StyledHBox>
+    <StyledHBox>{"string" === typeof text ? <p>{text}</p> : text}</StyledHBox>
   );
 };
 

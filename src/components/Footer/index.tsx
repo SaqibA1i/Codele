@@ -10,7 +10,19 @@ import {
   Whatsapp,
 } from "react-bootstrap-icons";
 import { LinkExternalPage } from "../Navbar/NavLinks";
+import { HBox } from "../../styles/HBox";
 
+const FootHeader = styled.p`
+  ${({ theme }) => `
+          color: ${theme.red} !important;
+          font-size: 1rem !important;
+          padding-bottom: 5px;
+          padding-top: 20px;
+          border-bottom: 1.5px solid ${theme.red};
+          font-weight: 600 !important;
+          min-width: 150px;
+    `};
+`;
 const StyledVBox = styled(VBox)`
   width: -webkit-fill-available;
   padding: 40px;
@@ -18,42 +30,57 @@ const StyledVBox = styled(VBox)`
   gap: 1rem;
   border-radius: -18px -18px 0 0;
   ${({ theme }) => `
-        background: url("footer.svg");
-        background-size: cover;
-        p {
-            color: ${theme.accent};
-            font-size: 0.9rem;
+  border-top: 1px solid ${theme.red};
+        a, p {
+            color: ${theme.black};
+            font-weight: 300;
+            font-size: 0.8rem;
+            margin: 0;
+            @media (max-width: ${theme.mobile}) {
+              font-size:1rem;
+        }
         }
     `};
 `;
 const Footer = () => {
   return (
     <StyledVBox>
-      <VBox maxWidth={"800px"} margin="0 auto" style={{ alignItems: "start" }}>
+      <HBox
+        maxWidth={"1000px"}
+        margin="0 auto"
+        style={{
+          flexWrap: "wrap",
+          gap: "60px",
+          alignItems: "center",
+        }}
+      >
         <Logo />
-        <VBox style={{ padding: 0, gap: "0", alignItems: "start" }}>
+        <VBox style={{ padding: 0, gap: "10px", alignItems: "start" }}>
+          <FootHeader>Contact</FootHeader>
+
+          <FooterLink Icon={<Telephone />} text="+1 (905) 479 - 9600" />
+
+          <FooterLink Icon={<Envelope />} text="paula@besthomescanada.com" />
+          <FooterLink
+            Icon={<Whatsapp />}
+            text={<a href="https://wa.me/12896375120">+1 (289) 637-5120</a>}
+          />
+          <FootHeader>Location</FootHeader>
           <FooterLink
             Icon={<GeoAlt />}
             text="221 Helen Ave. Markham ON L3R 1J7"
           />
-          <FooterLink Icon={<Telephone />} text="+1 (905) 479 - 9600" />
+          <FootHeader>Communities</FootHeader>
           <FooterLink
             Icon={<Whatsapp />}
-            text={
-              <a
-                style={{
-                  color: "white",
-                  padding: "10px 0",
-                }}
-                href="https://wa.me/12896375120"
-              >
-                <b>+1 (289) 637-5120</b>
-              </a>
-            }
+            text={<a href="https://wa.me/12896375120">Napaneell</a>}
           />
-          <FooterLink Icon={<Envelope />} text="paula@besthomescanada.com" />
+          <FooterLink
+            Icon={<Whatsapp />}
+            text={<a href="https://wa.me/12896375120">Springside</a>}
+          />
         </VBox>
-      </VBox>
+      </HBox>
     </StyledVBox>
   );
 };

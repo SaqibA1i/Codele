@@ -1,20 +1,23 @@
+import { url } from "inspector";
 import styled from "styled-components";
+import { background } from "styled-system";
 
 type Props = {
   dark?: Boolean;
 };
-const StyledLogo = styled.div<Props>(
+const StyledLogo = styled.img<Props>(
   ({ theme, dark }) => ({
     margin: 0,
-    color: dark ? theme.black : theme.accent,
-    border: `2px solid ${dark ? theme.black : theme.accent}`,
+    color: "#EF373E",
+    width: "200px",
     transition: "all 0.3s",
     fontSize: "1rem",
     display: "flex",
     flexDirection: "row",
     padding: "5px 10px",
   }),
-  `p {
+  `
+  p {
     margin: 0;
     text-align: center;
   }
@@ -23,13 +26,9 @@ const StyledLogo = styled.div<Props>(
     height: 0;
     background: white;
     border: none;
-    border-top: 2px solid white;
+    border-top: 2px solid red;
 }
 `
 );
 
-export const Logo = () => (
-  <StyledLogo>
-    <p>Bash Developments</p>
-  </StyledLogo>
-);
+export const Logo = () => <StyledLogo src="logo.jpg" />;

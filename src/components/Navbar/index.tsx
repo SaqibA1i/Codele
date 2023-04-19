@@ -9,8 +9,11 @@ import NavLinks, { LinkExternalPage, LinkPage } from "./NavLinks";
 
 export const WhatappLogo = styled(HBox)`
   ${({ theme }) => `
-    color: ${theme.accent};
+    color: white;
     gap: 10px;
+    background: ${theme.red};
+    border-radius: 10px;
+    padding: 10px 20px;
     svg {
         height: 30px;
         width: 30px;
@@ -30,7 +33,7 @@ const LogoSection = styled(HBox)`
   text-transform: uppercase;
 
   ${({ theme }) => `
-  color: ${theme.accent};
+  color: ${theme.red};
     svg {
         @media (min-width: ${theme.tablet}) {
            display:none;
@@ -48,10 +51,11 @@ const StyledHBox = styled(HBox)`
   left: 0;
   z-index: 2000;
   font-size: 0.7rem;
-
-  color: white;
+  background: #ffffff;
+  backdrop-filter: blur(3px);
+  color: #333;
   a {
-    color: white;
+    color: #333;
     text-decoration: none;
     cursor: pointer;
     text-transform: uppercase;
@@ -98,7 +102,7 @@ const Navbar = ({ onSideBarClick }: { onSideBarClick: any }) => {
         <NavLinks />
       </LogoSection>
       <WhatappLogo>
-        <Whatsapp color={theme.accent} />
+        <Whatsapp />
         <LinkExternalPage href="https://wa.me/12896375120">
           Whatsapp
         </LinkExternalPage>

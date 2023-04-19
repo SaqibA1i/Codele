@@ -10,28 +10,38 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { H1 } from "../../styles/Text";
 import { Button } from "../../styles/Button";
 import { theme } from "../../styles/Styles";
+import EmailUs from "./EmailUs";
 
-const Skyline = styled(Box)`
-  background: linear-gradient(to bottom, #600000 0%, #0000005f 100%),
-    url("skyline.jpg");
-  transition: background 300ms ease-in 200ms;
-  height: 100vh;
-  width: 100%;
-  background-position: 50% 0;
-  background-size: cover;
-  background-color: #600000;
+const Vid = styled.video`
+  min-height: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: 50% 0;
+  margin-top: -10px;
   @media screen and (min-width: ${({ theme }) => `${theme.tablet}`}) {
-    top: -20px;
+    top: 0px;
   }
 `;
-const StyledVBox = styled(VBox)`
-  padding-top: 70px;
-  width: 100%;
+
+const Skyline = styled(Vid)`
   height: 100vh;
-  gap: 60vh;
+  width: 100%;
+  left: 0;
+  z-index: 2;
+`;
+
+const StyledVBox = styled(VBox)`
+  width: 100%;
+  height: 30vh;
+  padding-top: 50px;
   z-index: 10;
   background-size: cover;
   transition: none;
+  position: absolute;
+  top: 0;
+  background: linear-gradient(180deg, white, transparent);
+  place-content: flex-start;
+
   @keyframes MoveUpDown {
     0%,
     100% {
@@ -41,15 +51,9 @@ const StyledVBox = styled(VBox)`
       bottom: 0;
     }
   }
-  svg {
-    color: white;
-    position: absolute;
-    margin-left: -20px;
-    animation: MoveUpDown 2s linear infinite;
-  }
 
   h1 {
-    font-size: 2.6pc;
+    font-size: 4.6pc;
     padding: 0 40px;
     text-transform: uppercase;
     font-weight: 100;
@@ -57,10 +61,9 @@ const StyledVBox = styled(VBox)`
 
     ${({ theme }) => `
     b {
-      color: ${theme.accent};
       font-weight: 600;
     }
-    color: ${theme.accent};
+    color: ${theme.red};
     margin: 0;
     margin-top: 20px;
   `}
@@ -73,9 +76,7 @@ const StyledVBox = styled(VBox)`
   }
 `;
 
-const StyleVBox = styled(VBox)`
-  margin-top: -72px;
-`;
+const StyleVBox = styled(VBox)``;
 const HomePage = (): JSX.Element => {
   let bubbles: JSX.Element[] = [];
   const addBubbles = (): JSX.Element[] => {
@@ -93,22 +94,17 @@ const HomePage = (): JSX.Element => {
         scrollBehavior: "smooth",
       }}
     >
-      <Skyline data-aos="zoom-out">
+      <Skyline data-aos="zoom-out" autoPlay muted loop id="video-background">
         <div className="bubble-wrap">{addBubbles()}</div>
-
-        <StyledVBox>
-          <VBox color="black">
-            <h1 data-aos="fade-down">
-              Simply <b>Better</b>
-            </h1>
-          </VBox>
-          <Box height="50px">
-            <a href="#first" id="first">
-              <ChevronDown size={40} />
-            </a>
-          </Box>
-        </StyledVBox>
+        <source src="timelapse.mp4" type="video/mp4" />
       </Skyline>
+      <StyledVBox>
+        <VBox>
+          <h1 data-aos="fade-down">
+            Simply <b>Better</b>
+          </h1>
+        </VBox>
+      </StyledVBox>
       {/* <Section head="Mission">
         <VBox style={{ gap: "1rem" }} id="first">
           <H1>WE MAKE THE CHOICE SIMPLE</H1>
@@ -163,39 +159,17 @@ const HomePage = (): JSX.Element => {
           />
         </HBox>
       </Section>
-
-      <Section head="Communities">
-        <HBox flexWrap="wrap" style={{ gap: "2rem" }}>
+      {/* <Section head="Communities" secondary>
+        <HBox style={{ gap: "2rem" }}>
           <Community
-            src="future.jpg"
-            Description="Upcoming cool and exciting projects!"
-            fade="Future"
-            link="future"
+            src="napanee.jpg"
+            Name="Greater Napanee"
+            Description="Stay tuned for more details and new offerings in and near the Greater Napanee area. "
             disabled
           />
         </HBox>
-      </Section>
-      <Section head="Say Hello!">
-        <HBox flexWrap="wrap" style={{ gap: "2rem" }}>
-          <VBox style={{ gap: "2rem" }}>
-            <H1>Speak to our team</H1>
-            <p>
-              Our goal at Bash Developments is to ensure that every customer is
-              looked after in the best way.
-            </p>
-            <Button
-              intent="edit"
-              icon={<EnvelopeFill />}
-              onClick={() =>
-                (window.location.href = "mailto:paula@besthomescanada.com")
-              }
-            >
-              Email
-            </Button>
-            <Form />
-          </VBox>
-        </HBox>
-      </Section>
+      </Section> */}
+      <EmailUs />
     </StyleVBox>
   );
 };

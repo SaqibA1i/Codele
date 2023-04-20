@@ -23,6 +23,7 @@ const CurrentCommunities = () => {
               src="current.jpg"
               Name="Lakeside  Views"
               Description="199 Freehold homes situated in Beaverton minutes away from the lake."
+              link="https://lakesideviews.ca"
               MoreDesc={
                 <p>
                   Settled lakeside in the charming community of Beaverton, also
@@ -48,27 +49,34 @@ const CurrentCommunities = () => {
               }
             />
             <Community
+              src="sheridan.jpg"
+              Name="Springside Meadows"
+              link="https://springsidemeadows.ca"
+              Description="An exceptional new subdivision offering consisting of 486 units in the Greater Napanee Area which is just 20 minutes away from Kingston."
+              MoreDesc={
+                <p>
+                  Springside Meadows is a new home community offering over 15
+                  acres of parks, ponds and passive green open spaces. A
+                  community for your lifestyle, less than 1km to the vibrant
+                  shops, restaurants, parks, riverside trails and choice fishing
+                  in the town of Napanee. A location that is almost 30km’s to
+                  either the City of Kingston, Belleville or to Prince Edward
+                  County (famous wineries and beaches).
+                  <br />
+                  <br />
+                  <a
+                    style={{ color: theme.light.blue }}
+                    href="https://springsidemeadows.ca"
+                  >
+                    Visit →
+                  </a>
+                </p>
+              }
+            />
+            <Community
               src="bobcaygeon.jpg"
               Name="Spencer Condos"
               Description="Currently in preconstruction at 24 Brock Street North, Hamilton. The Spencer at Dundas Peal has a total of 51 units."
-              disabled
-            />
-            <Community
-              src="napanee.jpg"
-              Name="Greater Napanee"
-              Description="Stay tuned for more details and new offerings in and near the Greater Napanee area. "
-              disabled
-            />
-            <Community
-              src="napanee.jpg"
-              Name="Brancroft Meadows"
-              Description="Stay tuned for more details and new offerings in and near the Greater Napanee area. "
-              disabled
-            />
-            <Community
-              src="napanee.jpg"
-              Name="Colborne Meadows"
-              Description="Stay tuned for more details and new offerings in and near the Greater Napanee area. "
               disabled
             />
           </HBox>

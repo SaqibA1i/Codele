@@ -21,6 +21,24 @@ const FutureCommunity = () => {
             Description="Stay tuned for more details and new offerings in and near the Greater Napanee area. "
             disabled
           />
+          <Community
+            src="bancroft.jpg"
+            Name="Brancroft Meadows"
+            Description="Nestled in the heart of Ontario's ruggedly beautiful landscape, Bancroft offers a welcoming small-town atmosphere."
+            disabled
+          />
+          <Community
+            src="colborne.jpg"
+            Name="Colborne Meadows"
+            Description="Colborne Meadows is a thriving community that boasts a peaceful suburban lifestyle with easy access to urban conveniences."
+            disabled
+          />
+          <Community
+            src="deseronto.jpg"
+            Name="Deseronto"
+            Description="The upcoming communities in the Deseronto area offer a unique blend of natural beauty, small-town charm, and modern amenities."
+            disabled
+          />
         </HBox>
       </VBox>
     </Section>

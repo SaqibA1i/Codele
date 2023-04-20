@@ -57,7 +57,7 @@ const Community = ({
   const theme = useContext(ThemeContext);
   const Img = styled(Link)`
     background: url(${src});
-    ${link ? `cursor: pointer` : `cursor: arrow`};
+    ${link ? `cursor: pointer` : `cursor: default`};
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -139,11 +139,10 @@ const Community = ({
         <Button
           intent="submit"
           onClick={() => {
-            if (link) {
-              window.open(link, "_blank");
-            }
             if (MoreDesc) {
               setShow(!show);
+            } else if (link) {
+              window.open(link, "_blank");
             }
           }}
         >

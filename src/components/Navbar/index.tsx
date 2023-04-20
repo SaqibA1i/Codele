@@ -80,10 +80,6 @@ const Navbar = ({ onSideBarClick }: { onSideBarClick: any }) => {
         // navbar!.classList.remove("navbar-top");
       }
     });
-
-    window.addEventListener("popstate", function () {
-      console.log("The window pathname has changed!");
-    });
   }, []);
 
   return (

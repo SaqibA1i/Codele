@@ -27,7 +27,7 @@ const FootHeader = styled.p`
 const StyledVBox = styled(VBox)`
   width: -webkit-fill-available;
   padding: 40px;
-  align-items: start;
+  align-items: center;
   gap: 1rem;
   border-radius: -18px -18px 0 0;
   ${({ theme }) => `
@@ -42,15 +42,17 @@ const Footer = () => {
   return (
     <StyledVBox>
       <HBox
-        maxWidth={"1000px"}
-        margin="0 auto"
         style={{
+          width: "-webkit-fill-available",
+          maxWidth: "900px",
           flexWrap: "wrap",
           gap: "60px",
           alignItems: "center",
+          justifyContent: "space-between",
+          padding: "0 40px",
         }}
       >
-        <Logo style={{ width: "300px" }} />
+        <Logo style={{ maxWidth: "300px", width: "100%" }} />
         <VBox style={{ padding: 0, gap: "10px", alignItems: "start" }}>
           <FootHeader>Contact</FootHeader>
 

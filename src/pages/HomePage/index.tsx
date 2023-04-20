@@ -12,6 +12,7 @@ import { Button } from "../../styles/Button";
 import { theme } from "../../styles/Styles";
 import EmailUs from "./EmailUs";
 import CurrentCommunities from "../Community/CurrentCommunities";
+import FutureCommunity from "../Community/FutureCommunities";
 
 const Vid = styled.video`
   min-height: 100%;
@@ -54,12 +55,14 @@ const StyledVBox = styled(VBox)`
   }
 
   h1 {
-    font-size: 4.6pc;
+    font-size: 3.6pc;
     padding: 0 40px;
     text-transform: uppercase;
     font-weight: 100;
     z-index: 110;
-
+    @media screen and (max-width: ${({ theme }) => `${theme.mobile}`}) {
+      font-size: 2.6pc;
+    }
     ${({ theme }) => `
     b {
       font-weight: 600;
@@ -81,7 +84,7 @@ const StyleVBox = styled(VBox)``;
 const HomePage = (): JSX.Element => {
   let bubbles: JSX.Element[] = [];
   const addBubbles = (): JSX.Element[] => {
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 20; i++) {
       bubbles.push(<div className="bubble" key={i} />);
     }
     return bubbles;
@@ -96,13 +99,13 @@ const HomePage = (): JSX.Element => {
       }}
     >
       <Skyline data-aos="zoom-out" autoPlay muted loop id="video-background">
-        <div className="bubble-wrap">{addBubbles()}</div>
         <source src="timelapse.mp4" type="video/mp4" />
       </Skyline>
       <StyledVBox>
+        {addBubbles()}
         <VBox>
           <h1 data-aos="fade-down">
-            Simply <b>Better</b>
+            Building Tomorrow <b>Together</b>
           </h1>
         </VBox>
       </StyledVBox>

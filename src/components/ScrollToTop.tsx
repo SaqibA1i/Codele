@@ -6,9 +6,8 @@ export default function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    console.log(pathname);
     // "document.documentElement.scrollTo" is the magic for React Router Dom v6
-    document!.getElementById("hello")!.scrollTo(0, pathname === "/" ? 0 : 1);
+    document!.getElementById("hello")!.scrollTo(0, pathname === "/" ? 0 : 10);
   }, [pathname]);
 
   return null;

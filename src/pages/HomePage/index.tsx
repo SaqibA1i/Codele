@@ -11,6 +11,7 @@ import { H1 } from "../../styles/Text";
 import { Button } from "../../styles/Button";
 import { theme } from "../../styles/Styles";
 import EmailUs from "./EmailUs";
+import CurrentCommunities from "../Community/CurrentCommunities";
 
 const Vid = styled.video`
   min-height: 100%;
@@ -121,44 +122,7 @@ const HomePage = (): JSX.Element => {
           </p>
         </VBox>
       </Section> */}
-      <Section head="Current Communities">
-        <HBox flexWrap="wrap" style={{ gap: "2rem" }}>
-          <Community
-            src="current.jpg"
-            Name="The Lakeside Views"
-            Description="199 Freehold homes situated in Beaverton minutes away from the lake."
-            MoreDesc={
-              <p>
-                Settled lakeside in the charming community of Beaverton, also
-                known as the largest region in the Brock Township. Enjoy
-                year-round recreational activities along the stunning rolling
-                countryside, surrounded by shoreline parks and in the midst of a
-                quaint suburban area. Reside alongside Lake Simcoe, a key
-                destination to enjoy all four seasons and relish in outdoor
-                activities including swimming, canoeing, ice fishing, camping
-                and much more! This delightful family-oriented community
-                contains a mixture of Bungalows, 2-Storey & Towns starting from
-                the <b>$600's</b>. Don't miss out on this incredible opportunity
-                to enjoy an easy life of relaxation and bliss!
-                <br />
-                <br />
-                <a
-                  style={{ color: theme.light.blue }}
-                  href="https://lakesideviews.ca"
-                >
-                  Visit →
-                </a>
-              </p>
-            }
-          />
-          <Community
-            src="bobcaygeon.jpg"
-            Name="Spencer Condos"
-            Description="Currently in preconstruction at 24 Brock Street North, Hamilton. The Spencer at Dundas Peal has a total of 51 units."
-            disabled
-          />
-        </HBox>
-      </Section>
+      <CurrentCommunities />
       {/* <Section head="Communities" secondary>
         <HBox style={{ gap: "2rem" }}>
           <Community

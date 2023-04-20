@@ -16,7 +16,7 @@ const ContactPage = () => {
       <Banner
         src="skyline.jpg"
         heading="Contact Us"
-        subHeading="We'd love to answer your questions!"
+        subHeading="Are you looking to develop land for residential or commercial purposes? Contact our experienced team to discuss your project and learn how we can help bring your vision to life. We offer a range of services from land acquisition to site development, and we're committed to delivering exceptional results."
         anim
       />
       <HBox style={{ alignItems: "stretch" }} width="100%">

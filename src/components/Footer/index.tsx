@@ -17,10 +17,11 @@ const FootHeader = styled.p`
           color: ${theme.red} !important;
           font-size: 1.3rem !important;
           padding-bottom: 5px;
-          padding-top: 20px;
-          border-bottom: 1.5px solid ${theme.red};
+          padding-top: 40px;
+          border-bottom: 2px solid ${theme.red};
           font-weight: 900 !important;
           min-width: 150px;
+          -webkit-text-stroke: thin;
     `};
 `;
 const StyledVBox = styled(VBox)`
@@ -33,12 +34,7 @@ const StyledVBox = styled(VBox)`
   border-top: 1px solid ${theme.red};
         a, p {
             color: ${theme.black};
-            font-weight: 300;
-            font-size: 0.8rem;
             margin: 0;
-            @media (max-width: ${theme.mobile}) {
-              font-size:1.1rem;
-        }
         }
     `};
 `;
@@ -54,7 +50,7 @@ const Footer = () => {
           alignItems: "center",
         }}
       >
-        <Logo />
+        <Logo style={{ width: "300px" }} />
         <VBox style={{ padding: 0, gap: "10px", alignItems: "start" }}>
           <FootHeader>Contact</FootHeader>
 

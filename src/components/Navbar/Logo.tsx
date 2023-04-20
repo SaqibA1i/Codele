@@ -31,4 +31,6 @@ const StyledLogo = styled.img<Props>(
 `
 );
 
-export const Logo = () => <StyledLogo src="logo.jpg" />;
+export const Logo = ({ style }: { style?: any }) => (
+  <StyledLogo src="logo.jpg" style={style || {}} />
+);

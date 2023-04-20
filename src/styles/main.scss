@@ -70,8 +70,10 @@ html {
   font-size: 20px;
   font-family: Lato, "Open Sans", sans-serif;
 
+  a,
   p {
-    font-weight: 600;
+    font-weight: 600 !important;
+    font-family: LatoLight;
   }
 
   @media screen and (max-width: 816px) {

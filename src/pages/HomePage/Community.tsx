@@ -32,6 +32,7 @@ const StyledVBox = styled(VBox)`
     padding: 15px 30px;
     cursor: pointer;
     border: none;
+    align-self: start;
     font-size: 1rem;
     ${({ theme }) => `
     background: ${theme.blue}`}
@@ -119,7 +120,7 @@ const Community = ({
       ) : (
         <></>
       )}
-      {Name && <h2 style={{ color: theme.red }}>{Name}</h2>}
+      {Name && <h2 style={{ color: theme.red, textAlign: "start" }}>{Name}</h2>}
       {Description && <p>{Description}</p>}
       <Box
         style={{

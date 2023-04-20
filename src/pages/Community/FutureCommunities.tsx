@@ -39,6 +39,12 @@ const FutureCommunity = () => {
             Description="The upcoming communities in the Deseronto area offer a unique blend of natural beauty, small-town charm, and modern amenities."
             disabled
           />
+          <Community
+            src="seguin.jpg"
+            Name="Seguin"
+            Description="Look forward to a one of a kind subdivision next to the beautiful lakes and all amenities nearby"
+            disabled
+          />
         </HBox>
       </VBox>
     </Section>

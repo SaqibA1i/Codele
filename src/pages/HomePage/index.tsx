@@ -136,6 +136,17 @@ const HomePage = (): JSX.Element => {
           />
         </HBox>
       </Section> */}
+      <Section head="Communities">
+        <HBox flexWrap="wrap" style={{ gap: "2rem" }}>
+          <Community
+            src="future.jpg"
+            Description="Upcoming cool and exciting projects!"
+            fade="Future"
+            link="future"
+            disabled
+          />
+        </HBox>
+      </Section>
       <EmailUs />
     </StyleVBox>
   );

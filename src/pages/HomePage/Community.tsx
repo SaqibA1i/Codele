@@ -56,7 +56,9 @@ const Community = ({
   const [show, setShow] = useState<boolean>(false);
   const theme = useContext(ThemeContext);
   const Img = styled(Link)`
-    background: url(${src});
+    background: ${fade
+      ? `linear-gradient(to left,rgb(239 55 62 / 80%) 0%,rgb(239 55 62 / 92%) 100%), url(${src})`
+      : `url(${src})`};
     ${link ? `cursor: pointer` : `cursor: default`};
     display: flex;
     flex-direction: column;
@@ -67,7 +69,7 @@ const Community = ({
     height: 350px;
     background-size: cover;
     color: white;
-    font-size: 1.9rem;
+    font-size: 2rem;
     font-weight: 600;
     transition: 0.3s all;
     text-decoration: none;

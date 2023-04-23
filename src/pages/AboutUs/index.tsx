@@ -43,8 +43,8 @@ const AboutUs = () => {
           </p>
           <p>
             At the core of this organization rests the skillful and inspired
-            leadership of Ahsan Ashraf, Chairman and President and Warris
-            Kamran, CEO.
+            leadership of Ahsan Ashraf, Founder and President and Warris Kamran,
+            CEO.
           </p>
           <p>
             BASH is widely recognized for its community-driven building

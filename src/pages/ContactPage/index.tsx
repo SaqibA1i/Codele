@@ -44,7 +44,7 @@ const ContactPage = () => {
               }}
               href="https://wa.me/12896375120"
             >
-              <p>+1 (647) 869-0087</p>
+              <p>+1 (647) 947-7087</p>
             </a>
           </VBox>
         </VBox>

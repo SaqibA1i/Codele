@@ -61,7 +61,7 @@ const Footer = () => {
           <FooterLink Icon={<Envelope />} text="contact@bashdevelopments.com" />
           <FooterLink
             Icon={<Whatsapp />}
-            text={<a href="https://wa.me/16478690087">+1 (647) 869-0087</a>}
+            text={<a href="https://wa.me/16479477087">+1 (647) 947-7087</a>}
           />
           <FootHeader>Location</FootHeader>
           <FooterLink
@@ -72,12 +72,9 @@ const Footer = () => {
           <FootHeader>Communities</FootHeader>
           <FooterLink
             Icon={<Whatsapp />}
-            text={<a href="https://wa.me/12896375120">Napaneell</a>}
+            text={<a href="/present">Current</a>}
           />
-          <FooterLink
-            Icon={<Whatsapp />}
-            text={<a href="https://wa.me/12896375120">Springside</a>}
-          />
+          <FooterLink Icon={<Whatsapp />} text={<a href="/future">Future</a>} />
         </VBox>
       </HBox>
     </StyledVBox>

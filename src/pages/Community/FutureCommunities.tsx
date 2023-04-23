@@ -42,7 +42,7 @@ const FutureCommunity = () => {
           <Community
             src="seguin.jpg"
             Name="Seguin"
-            Description="Look forward to a one of a kind subdivision next to the beautiful lakes and all amenities nearby"
+            Description="Look forward to a one of a kind subdivision next to the beautiful lakes and all amenities nearby."
             disabled
           />
         </HBox>

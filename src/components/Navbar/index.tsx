@@ -99,7 +99,7 @@ const Navbar = ({ onSideBarClick }: { onSideBarClick: any }) => {
       </LogoSection>
       <WhatappLogo>
         <Whatsapp />
-        <LinkExternalPage href="https://wa.me/16478690087">
+        <LinkExternalPage href="https://wa.me/16479477087">
           Whatsapp
         </LinkExternalPage>
       </WhatappLogo>

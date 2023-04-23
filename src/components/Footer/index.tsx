@@ -58,7 +58,14 @@ const Footer = () => {
 
           <FooterLink Icon={<Telephone />} text="+1 (905) 479 - 9600" />
 
-          <FooterLink Icon={<Envelope />} text="contact@bashdevelopments.com" />
+          <FooterLink
+            Icon={<Envelope />}
+            text={
+              <a href="mailto:contact@bashdevelopments.com">
+                contact@bashdevelopments.com
+              </a>
+            }
+          />
           <FooterLink
             Icon={<Whatsapp />}
             text={<a href="https://wa.me/16479477087">+1 (647) 947-7087</a>}

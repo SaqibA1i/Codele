@@ -8,6 +8,9 @@ type Props = {
 };
 const StyledHBox = styled(HBox)`
   color: white;
+  a {
+    color: #333 !important;
+  }
 `;
 const FooterLink = ({ Icon, text }: Props) => {
   return (

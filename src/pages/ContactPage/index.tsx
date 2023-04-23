@@ -27,8 +27,18 @@ const ContactPage = () => {
           <H1>For inquires Contact:</H1>
           <VBox style={{ alignItems: "start" }}>
             <h3>Head Office</h3>
-            <p>221 Helen Ave. Markham, ON L3R 1J7</p>
-            <p>1275 Finch Ave West, North York, ON M3J 2G5</p>
+            <a
+              style={{ color: "#333" }}
+              href="https://goo.gl/maps/xdEcXZyrPxBoU1js5"
+            >
+              221 Helen Ave. Markham, ON L3R 1J7
+            </a>
+            <a
+              style={{ color: "#333" }}
+              href="https://goo.gl/maps/ToJti6fEnPi6vwaK7"
+            >
+              1275 Finch Ave West, North York, ON M3J 2G5
+            </a>
           </VBox>
           <VBox style={{ alignItems: "start" }}>
             <h3>Phone</h3>

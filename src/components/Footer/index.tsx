@@ -66,11 +66,19 @@ const Footer = () => {
           <FootHeader>Location</FootHeader>
           <FooterLink
             Icon={<GeoAlt />}
-            text="221 Helen Ave. Markham ON L3R 1J7"
+            text={
+              <a href="https://goo.gl/maps/xdEcXZyrPxBoU1js5">
+                221 Helen Ave. Markham, ON L3R 1J7
+              </a>
+            }
           />
           <FooterLink
             Icon={<GeoAlt />}
-            text="1275 Finch Ave West, North York, ON M3J 2G5"
+            text={
+              <a href="https://goo.gl/maps/ToJti6fEnPi6vwaK7">
+                1275 Finch Ave West, North York, ON M3J 2G5
+              </a>
+            }
           />
           <FootHeader>Communities</FootHeader>
           <FooterLink

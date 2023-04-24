@@ -95,6 +95,15 @@ const Footer = () => {
           <FooterLink Icon={<Whatsapp />} text={<a href="/future">Future</a>} />
         </VBox>
       </HBox>
+      <hr />
+      <FooterLink
+        Icon={<Telephone />}
+        text={
+          <p style={{ color: "#333333c1" }}>
+            Site Design and Development <a href="https://codele.ca">@Codele</a>
+          </p>
+        }
+      />
     </StyledVBox>
   );
 };

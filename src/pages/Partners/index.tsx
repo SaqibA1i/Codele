@@ -75,7 +75,7 @@ const Partners = () => {
             <Button
               intent="submit"
               onClick={() =>
-                window.open("https://bashdevelopments.com", "_blank")
+                window.open("https://bestdevelopments.ca", "_blank")
               }
             >
               Visit

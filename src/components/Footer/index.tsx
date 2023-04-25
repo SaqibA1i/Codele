@@ -102,7 +102,7 @@ const Footer = () => {
       </HBox>
       <hr />
       <FooterLink
-        Icon={<Telephone />}
+        Icon={<></>}
         text={
           <p style={{ color: "#333333c1" }}>
             Site Design and Development <a href="https://codele.ca">@Codele</a>

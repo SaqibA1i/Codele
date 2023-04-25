@@ -8,6 +8,8 @@ import {
   Telephone,
   Envelope,
   Whatsapp,
+  BuildingAdd,
+  Building,
 } from "react-bootstrap-icons";
 import { LinkExternalPage } from "../Navbar/NavLinks";
 import { HBox } from "../../styles/HBox";
@@ -57,7 +59,10 @@ const Footer = () => {
           <FootHeader>Contact</FootHeader>
 
           <FooterLink Icon={<Telephone />} text="+1 (905) 479 - 9600" />
-
+          <FooterLink
+            Icon={<Whatsapp />}
+            text={<a href="https://wa.me/16479477087">+1 (647) 947-7087</a>}
+          />
           <FooterLink
             Icon={<Envelope />}
             text={
@@ -66,10 +71,7 @@ const Footer = () => {
               </a>
             }
           />
-          <FooterLink
-            Icon={<Whatsapp />}
-            text={<a href="https://wa.me/16479477087">+1 (647) 947-7087</a>}
-          />
+
           <FootHeader>Location</FootHeader>
           <FooterLink
             Icon={<GeoAlt />}
@@ -89,10 +91,13 @@ const Footer = () => {
           />
           <FootHeader>Communities</FootHeader>
           <FooterLink
-            Icon={<Whatsapp />}
+            Icon={<Building />}
             text={<a href="/present">Current</a>}
           />
-          <FooterLink Icon={<Whatsapp />} text={<a href="/future">Future</a>} />
+          <FooterLink
+            Icon={<BuildingAdd />}
+            text={<a href="/future">Future</a>}
+          />
         </VBox>
       </HBox>
       <hr />

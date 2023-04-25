@@ -8,13 +8,17 @@ type Props = {
 };
 const StyledHBox = styled(HBox)`
   color: white;
+  svg,
   a {
     color: #333 !important;
   }
 `;
 const FooterLink = ({ Icon, text }: Props) => {
   return (
-    <StyledHBox>{"string" === typeof text ? <p>{text}</p> : text}</StyledHBox>
+    <StyledHBox>
+      {Icon}
+      {"string" === typeof text ? <p>{text}</p> : text}
+    </StyledHBox>
   );
 };
 

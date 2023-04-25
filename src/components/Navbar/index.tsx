@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import NavLinks, { LinkExternalPage, LinkPage } from "./NavLinks";
 
 export const WhatappLogo = styled(HBox)`
+  cursor: pointer;
   ${({ theme }) => `
     color: white;
     gap: 10px;
@@ -97,11 +98,13 @@ const Navbar = ({ onSideBarClick }: { onSideBarClick: any }) => {
         </Link>
         <NavLinks />
       </LogoSection>
-      <WhatappLogo>
+      <WhatappLogo
+        onClick={() => {
+          window.open("https://wa.me/16479477087");
+        }}
+      >
         <Whatsapp />
-        <LinkExternalPage href="https://wa.me/16479477087">
-          Whatsapp
-        </LinkExternalPage>
+        <LinkExternalPage>Whatsapp</LinkExternalPage>
       </WhatappLogo>
     </StyledHBox>
   );

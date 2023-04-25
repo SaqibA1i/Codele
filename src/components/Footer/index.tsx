@@ -55,7 +55,7 @@ const Footer = () => {
         }}
       >
         <Logo style={{ maxWidth: "300px", width: "100%" }} />
-        <VBox style={{ padding: 0, gap: "10px", alignItems: "start" }}>
+        <VBox style={{ padding: 0, gap: "13px", alignItems: "start" }}>
           <FootHeader>Contact</FootHeader>
 
           <FooterLink Icon={<Telephone />} text="+1 (905) 479 - 9600" />
